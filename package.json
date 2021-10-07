@@ -12,11 +12,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "commit": "cz",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "commit": "cz"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -37,11 +37,15 @@
     ]
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./config/commitizen.js"
     }
   }
 }
