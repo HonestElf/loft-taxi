@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
 
-import Login from "./components/login/Login"
-import Map from "./components/map/Map"
-import Profile from "./components/profile/Profile"
+import Login from "./Components/login/Login"
+import Map from "./Components/map/Map"
+import Profile from "./Components/profile/Profile"
 
 class App extends React.Component {
   
