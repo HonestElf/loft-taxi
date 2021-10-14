@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const HeaderPage = () => {
-  return <> Header Component </>;
-};
+const Header = () => {
+    return <> Header component</>
+}
 
-export default HeaderPage;
+export default Header;

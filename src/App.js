@@ -1,50 +1,57 @@
-import { React, Component } from 'react';
 import './App.css';
+import React from 'react';
 
-// import Header from './Components/header/Header';
-import LoginPage from './Components/login/LoginPage';
-import MapPage from './Components/map/MapPage';
-import RegistrationPage from './Components/registration/RegistrationPage';
-import ProfilePage from './Components/profile/ProfilePage';
+import Login from "./components/login/Login"
+import Map from "./components/map/Map"
+import Profile from "./components/profile/Profile"
 
-const pages = {
-  login: <LoginPage/>,
-  map: <MapPage/>,
-  registration: <RegistrationPage/>,
-  profile: <ProfilePage/>
-}
-class App extends Component {
+class App extends React.Component {
+  
   state = {
-    currentPage: 'login'
+    currentPage: "login"
+  }
+  
+  navigateTo = (page) => {
+    this.setState({currentPage: page})
   }
 
-  navigateTo = (pageName) => {
-    this.setState({currentPage: pageName})
+  handleFormSubmit = () => {
+    console.log(this.state.currentPage)
+    this.navigateTo("map");
+      }
+
+ PAGES = {
+    "login": <Login onSubmit = {this.handleFormSubmit}/>,
+    "map": <Map/>,
+    "profile": <Profile/>
   }
+
   render () {
-    return (
-    <>
+    const {PAGES} = this;
+
+    return <>
     <header>
       <nav>
         <ul>
           <li>
-            <button onClick={()=>{this.navigateTo("map")}}>map</button>
-          </li>
-        <li>
-            <button onClick={()=>{this.navigateTo("profile")}}>profile</button>
+           <button onClick = {() => { this.navigateTo("login")}}>Login</button>
           </li>
           <li>
-            <button onClick={()=>{this.navigateTo("login")}}>login</button>
+           <button onClick = {() => { this.navigateTo("map")}}>Map</button>
+          </li>
+          <li>
+           <button onClick = {() => { this.navigateTo("profile")}}>Profile</button>
           </li>
         </ul>
       </nav>
     </header>
     <main>
       <section>
-    {pages[this.state.currentPage]}
-    </section>
+        {PAGES[this.state.currentPage]}
+      </section>
     </main>
-    </>)
+    </>
   }
 }
+
 export default App;
