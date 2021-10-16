@@ -1,7 +1,23 @@
-import React from "react";
+import React, { Component } from 'react';
+import { withAuth } from '../../common/authContext';
 
-const Profile = () => {
-    return <>Profile Component</>
+class Profile extends Component {
+  unauthenticate = (event) => {
+    event.preventDefautl();
+    this.props.logout();
+    this.props.navigate('login');
+  };
+
+  render() {
+    return (
+      <p>
+        Profile Component.
+        <button onClick={this.unauthenticate}>Log Out</button>
+      </p>
+    );
+  }
 }
 
-export default Profile;
+const ProfileWithAuth = withAuth(Profile);
+
+export default ProfileWithAuth;

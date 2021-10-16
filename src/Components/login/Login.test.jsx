@@ -1,13 +1,13 @@
-import React from "react";
-import {render} from "@testing-library/react"
+import React from 'react';
+import { render } from '@testing-library/react';
 
-import Login from "./Login"
+import LoginWithAuth from './Login';
 
-describe("Home", ()=> {
-    it("renders correctly", () => {
-        const {getByLabelText} = render(<Login/>)
+describe('Login', () => {
+  it('renders correctly', () => {
+    const { getByLabelText } = render(<LoginWithAuth />);
 
-        expect(getByLabelText("Email:")).toHaveAttribute("name", "email")
-        expect(getByLabelText("Password:")).toHaveAttribute("name", "password")
-    })
-})
+    expect(getByLabelText('Email:')).toHaveAttribute('name', 'email');
+    expect(getByLabelText('Password:')).toHaveAttribute('name', 'password');
+  });
+});
