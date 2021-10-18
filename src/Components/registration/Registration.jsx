@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 const Registration = (props) => {
   const { onSubmit } = props;
@@ -14,6 +15,10 @@ const Registration = (props) => {
       </button>
     </form>
   );
+};
+
+Registration.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default Registration;

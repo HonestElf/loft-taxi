@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+
 import { withAuth } from '../../common/authContext';
 
 class Profile extends Component {
   unauthenticate = (event) => {
-    event.preventDefautl();
+    console.log(event);
+    // event.preventDefautl();
     this.props.logout();
     this.props.navigate('login');
   };
@@ -17,6 +20,12 @@ class Profile extends Component {
     );
   }
 }
+
+Profile.propTypes = {
+  isAuthorized: PropTypes.bool,
+  logIn: PropTypes.func,
+  navigate: PropTypes.func,
+};
 
 const ProfileWithAuth = withAuth(Profile);
 
