@@ -23,7 +23,7 @@ describe('App', () => {
 
   describe('when clicked on navigation buttons', () => {
     it('opens the corresponding page', () => {
-      const { getByText, container } = render(<App />);
+      const { getByText, container } = render(<App isAuthorized={true} />);
 
       fireEvent.click(getByText('Map'));
       expect(container.innerHTML).toMatch('Map content');
