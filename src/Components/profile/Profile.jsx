@@ -1,32 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
-import { withAuth } from '../../common/authContext';
+import loginActions from '../login/_actions';
 
-class Profile extends Component {
-  unauthenticate = (event) => {
-    console.log(event);
-    // event.preventDefautl();
-    this.props.logout();
-    this.props.navigate('login');
+const Profile = (props) => {
+  const { logOut } = props;
+  const unauthenticate = () => {
+    logOut();
   };
 
-  render() {
-    return (
-      <p>
-        Profile Component.
-        <button onClick={this.unauthenticate}>Log Out</button>
-      </p>
-    );
-  }
-}
-
-Profile.propTypes = {
-  isAuthorized: PropTypes.bool,
-  logIn: PropTypes.func,
-  navigate: PropTypes.func,
+  return (
+    <p>
+      Profile Component.
+      <button onClick={unauthenticate}>Log Out</button>
+    </p>
+  );
 };
 
-const ProfileWithAuth = withAuth(Profile);
+Profile.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  logIn: PropTypes.func,
+};
 
-export default ProfileWithAuth;
+const mapDispatchToProps = { logOut: loginActions.logOut };
+
+export default connect(null, mapDispatchToProps)(Profile);
